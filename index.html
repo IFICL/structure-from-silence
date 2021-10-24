@@ -1,0 +1,282 @@
+<script src="http://www.google.com/jsapi" type="text/javascript"></script> 
+<script type="text/javascript">google.load("jquery", "1.3.2");</script>
+
+<html>
+<head>
+    <title>Structure from Silence</title>
+    <meta property="og:image" content=images/teaser.png"/> <!-- Facebook automatically scrapes this. Go to https://developers.facebook.com/tools/debug/ if you update and want to force Facebook to rescrape. -->
+    <meta property="og:title" content="Structure from Silence: Learning Scene Structure from Ambient Sound" />
+    <meta property="og:description" content="Z. Chen*, X. Hu*, A. Owens. CoRL 2021" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- webpage template-->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- model-viewer css -->
+    <link rel="stylesheet" href="assets/css/demo-style.css">
+
+</head>
+
+<body>
+    <br>
+    <!-- <center> -->
+    <center>
+        <span style="font-size:38px">Structure from Silence: <br />
+            Learning Scene Structure from Ambient Sound</span>
+    </center>
+    <br><br>
+    <table align=center width=60%>
+        <tr>
+            <td align=center width=33%>
+                <center>
+                    <span style="font-size:20px"><a href="https://ificl.github.io/">Ziyang Chen</a>*</span>
+                </center>
+            </td>
+            <td align=center width=33%>
+                <center>
+                    <span style="font-size:20px"><a href="https://hxixixh.github.io/">Xixi Hu</a>*</span>
+                </center>
+            </td>
+            <td align=center width=33%>
+                <center>
+                    <span style="font-size:20px"><a href="http://andrewowens.com/">Andrew Owens</a></span>
+                </center>
+            </td>
+        </tr>
+    </table>
+    <br>
+    <table align=center width=60%>
+        <tr>
+            <td align=center width=100%>
+                <center>
+                    <span style="font-size:20px">University of Michigan</span>
+                </center>
+            </td>
+        </tr>
+    </table>
+    <br>
+    <table align=center width=60%>
+        <tr>
+            <td align=center width=100%>
+                <center>
+                    <span style="font-size:20px">CoRL 2021 (<span style="color:#a00"><b>Oral</b></span>)</span>
+                </center>
+            </td>
+        </tr>
+    </table>
+    <br>
+    <table align=center width=50%>
+        <tr>
+            <td align=center width=35%>
+                <center>
+                    <span style="font-size:20px"><a href="https://openreview.net/forum?id=ht3aHpc1hUt">[OpenReview]</a></span>
+                </center>
+            </td>
+            <td align=center width=20%>
+                <center>
+                    <span style="font-size:20px"><a href="#">[Arxiv]</a></span>
+                </center>
+            </td>
+            <td align=center width=20%>
+                <center>
+                    <span style="font-size:20px"><a href="#">[Code]</a></span>
+                </center>
+            </td>
+            <td align=center width=20%>
+                <center>
+                    <span style="font-size:20px"><a href="#">[Talk]</a></span>
+                </center>
+            </td>
+        </tr>
+    </table>
+    <!-- <table align=center width=700px>
+        <tr>
+            <td align=center width=100px>
+                <center>
+                    <span style="font-size:20px"></span>
+                </center>
+            </td>
+        </tr>
+    </table> -->
+    <br>
+
+    <table align=center width=80%>
+        <tr>
+            <td width=100%>
+                <center>
+                    <img src="images/teaser.png" width="100%"></img><br>
+                </center>
+            </td>
+        </tr>
+        <tr>
+        <td width=95%>
+            <center>
+                <span style="font-size:14px"><i> <b>What does ambient sound tell us about scene structure?</b>. (a) We collect an "in-the-wild" dataset of paired audio and RGB-D recordings from quiet indoor scenes. (b) Given audio from a scene, we estimate distance to a wall. (c) We use this ambient audio to learn useful representations using multimodal self-supervision.</i> 
+            </center>
+        </td>
+        </tr>
+    </table>
+    <br>
+    <hr>
+
+    <table align=center width=80%>
+        <center><h1>Abstract</h1></center>
+        <tr>
+            <td>
+                The sounds that a robot hears within a scene subtly vary as it moves through it. In this paper, we ask whether these
+                ambient sounds convey information about scene structure. To study this, we collect a dataset of "in-the-wild" paired
+                audio and RGB-D recordings in a variety of quiet, indoor scenes, typical of what a robot would encounter when performing
+                navigation tasks. Using this data, we train models that successfully estimate depth in a number of evaluation settings.
+                Finally, we show that these sounds provide a useful learning signal, and that we can obtain a useful representation by
+                associating a visual signal with sound. These results suggest that ambient sound conveys a surprising amount of
+                information about scene structure, and that this information can be successfully exploited by learning systems.
+            </td>
+        </tr>
+    </table>
+    <br><br>
+    <hr>
+
+    <table align=center width=90%>
+        <center>
+            <h1>Dataset</h1>
+        </center>
+        <tr>
+            <td width=100%>
+                <center>
+                    <img src="images/dataset.png" width="100%"></img><br>
+                </center>
+            </td>
+        </tr>
+        <tr>
+            <td width=100%>
+                <div class="row" align="center" width="100%">
+                    <div class="column" float="left">
+                        <video id='videos/static_near.mp4' controls height='200' >
+                            <source src="./videos/static_near.mp4" type="video/mp4" preload="none">
+                        </video>
+                    </div>
+                    <div class="column" float="center">
+                        <video id='videos/static_far.mp4' controls height='200'>
+                            <source src="./videos/static_far.mp4" type="video/mp4" preload="none">
+                        </video>
+                    </div>
+                    <div class="column", float="right">
+                        <video id='videos/motion.mp4' controls height='200'>
+                            <source src="./videos/motion.mp4" type="video/mp4" preload="none">
+                        </video>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <br>
+    <center>
+        <span style="font-size:20px"><a href="#">[Download Link] (coming soon)</a></span>
+    </center>
+    <br>
+    <hr>
+
+    <table align=center width=100%>
+        <center>
+            <h1>Talk</h1>
+        </center>
+        <div>
+            <p align="center">
+            <iframe style="width: 70%; height: 60%; min-width:300px" src="https://www.youtube.com/embed/yqWX86uT5jM" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </p>
+        </div>
+    </table>
+    <br><br>
+    <hr>
+
+    <table align=center width=80%>
+        <center>
+            <h1>Qualitative Results</h1>
+        </center>
+        <tr>
+            <td width=50%>
+                <center>
+                    <h3> Obstacle Detection Demo </h3>
+                </center>
+            </td>
+            <td width=50%>
+                <center>
+                    <h3> Robot Demo </h3>
+                </center>
+            </td>
+        </tr>
+        <tr>
+            <td width=50%>
+                <div>
+                    <p align="center">
+                        <iframe style="width: 70%; height: 100%; min-height:350px"  src="https://www.youtube.com/embed/u1Fd11nIx5A" title="YouTube video player"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </p>
+                </div>
+            </td>
+            <td width=50%>
+                <div>
+                    <p align="center">
+                        <!-- <iframe width="1140" height="641" src="" title="YouTube video player"
+                            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe> -->
+                    <iframe style="width: 100%; height: 50%; min-height:350px" src="https://www.youtube.com/embed/TeDjM0Lqavs" title="YouTube video player"
+                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                    </p>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <br><br>
+    <hr>
+
+    <table align=center width=60%>
+        <center><h1>Paper and Supplementary Material</h1></center>
+        <tr>
+            <td><a href=""><img class="layered-paper-big" style="height:175px" src="./images/paper.png"/></a></td>
+            <td><span style="font-size:14pt">Ziyang Chen*, Xixi Hu*, Andrew Owens.<br>
+                <b>Structure from Silence: Learning Scene Structure from Ambient Sound.</b><br>
+                CoRL 2021.<br>
+                <!-- (hosted on <a href="#">ArXiv</a>)<br> -->
+                (<a href="https://openreview.net/forum?id=ht3aHpc1hUt">OpenReview</a>)  (<a href="#">Arxiv</a>)<br>
+                <span style="font-size:4pt"><a href=""><br></a>
+                </span>
+            </td>
+        </tr>
+    </table>
+    <br>
+
+    <table align=center width=60%>
+        <tr>
+            <td><span style="font-size:14pt"><center>
+                <a href="./docs/bibtex.txt">[Bibtex]</a>
+            </center></td>
+        </tr>
+    </table>
+
+    <hr>
+    <br>
+
+    <table align=center width=80%>
+        <tr>
+            <td width=80%>
+                <left>
+                    <center><h1>Acknowledgements</h1></center>
+                    We thank James Traer for his invaluable help explaining work on the human perception of ambient sound.
+                    We would also like to thank Linyi Jin and Shengyi Qian for help with visual experiment setups and their valuable
+                    suggestions. We also thank David Fouhey for his comments and feedback, Peter Gaskell for his help on robot equipment,
+                    and Yicheng Yang for help on data collection. This work was funded in part by DARPA Semafor and Cisco Systems. The
+                    views, opinions and/or findings expressed are those of the authors and should not be interpreted as representing the
+                    official views or policies of the Department of Defense or the U.S. Government. The webpage template was originally made by <a href="http://web.mit.edu/phillipi/">Phillip Isola</a> and <a href="http://richzhang.github.io/">Richard Zhang</a> for a <a href="http://richzhang.github.io/colorization/">Colorization</a> project. 
+                </left>
+            </td>
+        </tr>
+    </table>
+
+<br>
+</body>
+</html>
+
