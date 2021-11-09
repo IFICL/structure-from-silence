@@ -64,26 +64,26 @@
         </tr>
     </table>
     <br>
-    <table align=center width=50%>
+    <table align=center width=100%>
         <tr>
-            <td align=center width=35%>
+            <td align=center width=20%>
                 <center>
                     <span style="font-size:20px"><a href="https://openreview.net/forum?id=ht3aHpc1hUt">[OpenReview]</a></span>
                 </center>
             </td>
             <td align=center width=20%>
                 <center>
-                    <span style="font-size:20px"><a href="#">[Arxiv]</a></span>
+                    <span style="font-size:20px"><a href="#">[Arxiv] (Coming soon)</a></span>
                 </center>
             </td>
             <td align=center width=20%>
                 <center>
-                    <span style="font-size:20px"><a href="#">[Code]</a></span>
+                    <span style="font-size:20px"><a href="#">[Code] (Coming soon)</a></span>
                 </center>
             </td>
             <td align=center width=20%>
                 <center>
-                    <span style="font-size:20px"><a href="#">[Talk]</a></span>
+                    <span style="font-size:20px"><a href="https://www.youtube.com/watch?v=vpcTohC8OOg&ab_channel=ZiyangChen">[Talk]</a></span>
                 </center>
             </td>
         </tr>
@@ -122,13 +122,13 @@
         <center><h1>Abstract</h1></center>
         <tr>
             <td>
-                The sounds that a robot hears within a scene subtly vary as it moves through it. In this paper, we ask whether these
-                ambient sounds convey information about scene structure. To study this, we collect a dataset of "in-the-wild" paired
-                audio and RGB-D recordings in a variety of quiet, indoor scenes, typical of what a robot would encounter when performing
-                navigation tasks. Using this data, we train models that successfully estimate depth in a number of evaluation settings.
-                Finally, we show that these sounds provide a useful learning signal, and that we can obtain a useful representation by
-                associating a visual signal with sound. These results suggest that ambient sound conveys a surprising amount of
-                information about scene structure, and that this information can be successfully exploited by learning systems.
+                From whirling ceiling fans to ticking clocks, the sounds that we hear subtly vary as we move through a scene. We ask
+                whether these ambient sounds convey information about 3D scene structure and, if so, whether they provide a useful
+                learning signal for multimodal models. To study this, we collect a dataset of paired audio and RGB-D recordings from a
+                variety of quiet indoor scenes. We then train models that estimate the distance to nearby walls, given only audio as
+                input. We also use these recordings to learn multimodal representations through self-supervision, by training a network
+                to associate images with their corresponding sounds. These results suggest that ambient sound conveys a surprising
+                amount of information about scene structure, and that it is a useful signal for learning multimodal features.
             </td>
         </tr>
     </table>
@@ -181,7 +181,7 @@
         </center>
         <div>
             <p align="center">
-            <iframe style="width: 70%; height: 60%; min-width:300px" src="https://www.youtube.com/embed/yqWX86uT5jM" frameborder="0"
+            <iframe style="width: 70%; height: 60%; min-width:300px" src="https://www.youtube.com/embed/vpcTohC8OOg" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </p>
         </div>
@@ -265,12 +265,13 @@
             <td width=80%>
                 <left>
                     <center><h1>Acknowledgements</h1></center>
-                    We thank James Traer for his invaluable help explaining work on the human perception of ambient sound.
-                    We would also like to thank Linyi Jin and Shengyi Qian for help with visual experiment setups and their valuable
-                    suggestions. We also thank David Fouhey for his comments and feedback, Peter Gaskell for his help on robot equipment,
-                    and Yicheng Yang for help on data collection. This work was funded in part by DARPA Semafor and Cisco Systems. The
-                    views, opinions and/or findings expressed are those of the authors and should not be interpreted as representing the
-                    official views or policies of the Department of Defense or the U.S. Government. The webpage template was originally made by <a href="http://web.mit.edu/phillipi/">Phillip Isola</a> and <a href="http://richzhang.github.io/">Richard Zhang</a> for a <a href="http://richzhang.github.io/colorization/">Colorization</a> project. 
+                    We thank James Traer for his invaluable help explaining work on human perception of ambient sound. We would also like to
+                    thank Linyi Jin and Shengyi Qian for help with visual experiment setups and their valuable suggestions. We also thank
+                    David Fouhey for his comments and feedback, Peter Gaskell for his help on robot equipment, and Yichen Yang for the help
+                    on data collection. We thank the valuable suggestions and feedbacks from David Harwath, Kristen Grauman and UT-Austin
+                    Computer Vision Group. This work was funded in part by DARPA Semafor and Cisco Systems. The views, opinions and/or
+                    findings expressed are those of the authors and should not be interpreted as representing the official views or policies
+                    of the Department of Defense or the U.S. Government. The webpage template was originally made by <a href="http://web.mit.edu/phillipi/">Phillip Isola</a> and <a href="http://richzhang.github.io/">Richard Zhang</a> for a <a href="http://richzhang.github.io/colorization/">Colorization</a> project. 
                 </left>
             </td>
         </tr>

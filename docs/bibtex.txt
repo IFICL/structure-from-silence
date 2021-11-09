@@ -1,6 +1,8 @@
-@inproceedings{author20XXtitle,
-  title={Please cite me},
-  author={Author, First and Author, Second and Author, Third},
-  booktitle={Conference},
-  year={20XX}
+@inproceedings{
+    chen2021structure,
+    title={Structure from Silence: Learning Scene Structure from Ambient Sound},
+    author={Ziyang Chen and Xixi Hu and Andrew Owens},
+    booktitle={5th Annual Conference on Robot Learning },
+    year={2021},
+    url={https://openreview.net/forum?id=ht3aHpc1hUt}
 }
