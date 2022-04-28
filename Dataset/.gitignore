@@ -1,0 +1,13 @@
+/SFS-Static/*
+!/SFS-Static/*.md
+!/SFS-Static/*.py
+!/SFS-Static/*.csv
+!/SFS-Static/*.sh
+!/SFS-Static/data-split
+
+/SFS-Motion/*
+!/SFS-Motion/*.md
+!/SFS-Motion/*.py
+!/SFS-Motion/*.csv
+!/SFS-Motion/*.sh
+!/SFS-Motion/data-split
